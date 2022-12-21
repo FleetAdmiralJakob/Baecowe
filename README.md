@@ -2,6 +2,21 @@
 
 A BAsic E COmmerce WEbsite (Baecowe)
 
+## Built With
+My personal portfolio roessner.tech which features some of my GitHub projects as well as my resume and technical skills.
+
+This project was built using these technologies.
+
+<strong>
+- ReactJS / NextJS <br/>
+- TypeScript <br/>
+- TailwindCSS <br/>
+- MongoDB <br/> <br/> </strong>
+- Vercel/Netlify <br/>
+- Stripe <br/>
+- Paypal <br/>
+- Next Auth
+
 ## Getting Started
 
 Clone down this repository. You will need `node.js` and `git` installed globally on your machine.
