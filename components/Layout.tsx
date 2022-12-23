@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Head from "next/head";
 import Link from "next/link";
+import {Store} from "../utils/Store";
 
 function Layout({ title, children }) {
+    const { state, dispatch } = useContext(Store);
+    const { cart } = state;
+
     return (
         <>
             <Head>
@@ -19,14 +23,21 @@ function Layout({ title, children }) {
                         </Link>
                         </div>
                         <div className="inline-flex">
-                            <Link href="/cart"><div className="p-2 font-bold">Cart</div></Link>
+                            <Link href="/cart"><div className="p-2 font-bold">Cart
+                                {cart.cartItems.length > 0 && (
+                                    <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
+                                        {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                                    </span>
+                                )}
+                                </div>
+                            </Link>
                             <Link href="/login"><div className="p-2 font-bold">Login</div></Link>
                         </div>
                     </nav>
                 </header>
                 <main className="container m-auto mt-4 ml-0 px-4">{children}</main>
                 <footer className="flex h-10 justify-center items-center shadow-inner">
-                    <div className="text-ms font-semibold">Baecowe &copy; 2022 by Jakob Rössner</div>
+                    <div className="text-ms font-semibold">Baecowe &copy; 2022 by <a href="https://www.roessner.tech" className="underline">Jakob Rössner</a></div>
                 </footer>
             </div>
         </>
